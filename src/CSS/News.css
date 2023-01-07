@@ -139,6 +139,10 @@ input {
 }
 
 @media screen and (max-width: 600px) {
+    .wrapper {
+        width: 100%;
+    }
+
     .navbar {
         display: flex;
         flex-direction: column;

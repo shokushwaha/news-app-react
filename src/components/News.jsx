@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../CSS/News.css'
 
 import { RotatingSquare } from 'react-loader-spinner'
+import Footer from './Footer';
 const urlHead = 'https://gnews.io/api/v4/search?q=example&token=d2506f2e4b590427f97cf7e75395a841&lang=en&country=us&max=40';
 
 const oneUrl = 'https://gnews.io/api/v4/top-headlines?topic=';
@@ -115,6 +116,8 @@ export default function News() {
 
                     )
                 })}   </div>
+            <Footer />
         </div>
+
     )
 }
