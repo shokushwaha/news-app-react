@@ -1,6 +1,7 @@
 import './App.css';
 
 import News from './components/News';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
 
 
       <News />
+      <Footer />
     </>
   );
 }

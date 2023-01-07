@@ -11,11 +11,9 @@ const apiKey = `&apiKey=a0b9e39bbcdb4eaaaf6a2274e64d8d5e&q=in`;
 export default function News() {
 
     const [news, setNews] = useState([]);
-
     const [text, setText] = useState('');
     const [filt, setFilt] = useState('');
     const [heading, setHeading] = useState('Top Headlines');
-
     const [loading, setLoading] = useState(false);
 
 
@@ -26,11 +24,14 @@ export default function News() {
     }
     const showNews = async () => {
         try {
+
             setLoading(true);
             setHeading(text);
             setFilt('');
             const finalUrl = `${oneUrl}${filt}${apiKey}`;
-            const res = await axios.get(finalUrl); setNews(res.data.articles); console.log(res.data.articles);
+            const res = await axios.get(finalUrl);
+            setNews(res.data.articles);
+            console.log(res.data.articles);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -57,7 +58,7 @@ export default function News() {
             <RotatingSquare
                 height="500px"
                 width="100%"
-                color="red"
+                color=" #65e3c7"
                 ariaLabel="rotating-square-loading"
                 strokeWidth="2"
                 wrapperStyle={{}}
@@ -65,19 +66,28 @@ export default function News() {
                 visible={true}
             /></>)
     return (
-        <div>
+        <div className='wrapper'>
+            <div className="navbar">
+                <div className="newsHead">
 
-            <input type="text" placeholder='filter' value={filt} onChange={handleFilt} />
-            <button onClick={showNews}>Search</button>
-            {heading}
-            <a href="/">Home</a>
+                    <a href="/" >NEWS</a>
+                </div>
+                <input type="text" placeholder='Filter....' value={filt} onChange={handleFilt} />
+                <button onClick={showNews} className="searchBtn"  >SEARCH</button>
 
 
 
-            {news.map((item) => {
-                return (
+            </div>
 
-                    <div className='newsBox'>
+            <div className="heading">
+
+                {heading}
+            </div>
+            <div className='newsBox'>
+                {news.map((item) => {
+                    return (
+
+
 
                         <div className="singleNews">
 
@@ -100,14 +110,14 @@ export default function News() {
                             </span>
                             <span className="link">
 
-                                <a href={item.url} target="_blank" >Read More</a>
+                                <a href={item.url} target="_blank" className='readMore' >Read More</a>
                             </span>
 
                         </div>
-                    </div>
 
-                )
-            })}
+
+                    )
+                })}   </div>
         </div>
     )
 }

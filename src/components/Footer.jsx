@@ -6,7 +6,8 @@ export default function Footer() {
 
 
     return (
-        <div className='footBox'>Footer
+        <div className='footBox'>
+            Designed & Developed by Shobhit || &copy; 2023
 
 
 
