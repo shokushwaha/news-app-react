@@ -4,10 +4,10 @@ import axios from 'axios';
 import '../CSS/News.css'
 
 import { RotatingSquare } from 'react-loader-spinner'
-const urlHead = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=a0b9e39bbcdb4eaaaf6a2274e64d8d5e&q=in';
+const urlHead = 'https://gnews.io/api/v4/search?q=example&token=d2506f2e4b590427f97cf7e75395a841&lang=en&country=us&max=40';
 
-const oneUrl = `https://newsapi.org/v2/top-headlines?country=in&category=`;
-const apiKey = `&apiKey=a0b9e39bbcdb4eaaaf6a2274e64d8d5e&q=in`;
+const oneUrl = 'https://gnews.io/api/v4/top-headlines?topic=';
+const apiKey = '&token=d2506f2e4b590427f97cf7e75395a841&lang=en&country=us&max=10';
 export default function News() {
 
     const [news, setNews] = useState([]);
@@ -94,19 +94,16 @@ export default function News() {
 
                             <div className="one">
 
-                                <img src={item.urlToImage} className="newsImage" />
+                                <img src={item.image} className="newsImage" />
                                 <span className="title">
 
                                     {item.title}
                                 </span>
                             </div>
-                            <span className="author">
 
-                                {item.author}
-                            </span>
                             <span className="desc">
 
-                                {item.description}
+                                {item.content}
                             </span>
                             <span className="link">
 

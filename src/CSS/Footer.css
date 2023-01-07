@@ -1,4 +1,6 @@
 .footBox {
+    position: relative;
+    bottom: 0;
     width: 100%;
     height: 4%;
     background-color: black;
